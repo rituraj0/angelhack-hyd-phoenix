@@ -1,0 +1,66 @@
+<div data-ng-controller="HeaderController">
+	<a href="/#!/" class="logo">
+	    Phoenix
+	</a>
+	<nav class="navbar navbar-static-top">
+		<button class="navbar-btn sidebar-toggle" data-ng-click="toggleCollapsibleMenu()" type="button">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	    </button>
+	    <div class="navbar-right">
+	    	<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
+				<li ui-route="/signup" ng-class="{active: $uiRoute}">
+					<a href="/#!/signup">Sign Up</a>
+				</li>
+				<li class="divider-vertical"></li>
+				<li ui-route="/signin" ng-class="{active: $uiRoute}">
+					<a href="/#!/signin">Sign In</a>
+				</li>
+			</ul>
+		    <ul class="nav navbar-nav" data-ng-show="authentication.user">
+          <li>
+            <a href="/#!/transfer"><span>Transfer Demo</span></a>
+          </li>
+		    	<li>
+		    		<a href="/#!/share"><span>Shared Files</span></a>
+		    	</li>
+	             <!-- User Account: style can be found in dropdown.less -->
+	            <li class="dropdown user user-menu">
+	                <a href="#" class="dropdown-toggle">
+	                    <i class="glyphicon glyphicon-user"></i>
+	                    <span data-ng-bind="authentication.user.displayName"></span> <i class="caret"></i>
+	                </a>
+	                <ul class="dropdown-menu">
+	                    <!-- User image -->
+	                    <li class="user-header bg-light-blue">
+	                        <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+	                        <p>
+	                            {{authentication.user.displayName}} - Administrator
+	                        </p>
+	                    </li>
+	                    <!-- Menu Body -->
+	                    <li class="user-body">
+	                        <div class="col-xs-6 text-center">
+	                            <a href="/#!/settings/accounts">Manage Social Accounts</a>
+	                        </div>
+	                        <div class="col-xs-6 text-center"  data-ng-show="authentication.user.provider === 'local'">
+	                            <a href="/#!/settings/password">Change Password</a>
+	                        </div>
+	                    </li>
+	                    <!-- Menu Footer-->
+	                    <li class="user-footer">
+	                        <div class="pull-left">
+	                            <a href="/#!/settings/profile" class="btn btn-default btn-flat">Profile</a>
+	                        </div>
+	                        <div class="pull-right">
+	                            <a href="/auth/signout" class="btn btn-default btn-flat">Sign out</a>
+	                        </div>
+	                    </li>
+	                </ul>
+	            </li>
+	        </ul>
+	    </div>
+	</nav>
+</div>

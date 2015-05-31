@@ -1,0 +1,18 @@
+<div class="box box-default color-palette-box" ng-controller="UserFilesController as userfilesctrl" class="sharing">
+    <div class="box-header with-border">
+        <h3 class="box-title"><i class="fa fa-tag"></i>Shared Files of {{userfilesctrl.user.displayName}}</h3>
+    </div>
+    <div class="box-body" id="file-share">
+      <div class="shared-files-container">
+        <div class="col-sm-4 col-md-2 shared-file-padding" data-ng-repeat="file in userfilesctrl.files">
+          <a class="btn btn-app  shared-folders">
+            <span class="badge bg-teal">{{file.childs.length}}</span>
+            <i class="fa fa-4x" ng-class="userfilesctrl.getFileType(file)"></i> {{file.name}}
+          </a>
+        </div>
+      </div>
+      <!-- /.col -->
+      <!-- /.row -->
+    </div>
+    <!-- /.box-body -->
+</div>
